@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorOpener : MonoBehaviour
+public class DoorController : MonoBehaviour
 {
     [SerializeField] private Animator doorAnimator;
+    private int playerCount = 0;
 
     private void Start()
     {
@@ -15,7 +16,11 @@ public class DoorOpener : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            OpenDoor();
+            playerCount++;
+            if (playerCount == 1)
+            {
+                OpenDoor();
+            }
         }
     }
 
@@ -23,7 +28,11 @@ public class DoorOpener : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            CloseDoor();
+            playerCount--;
+            if (playerCount == 0)
+            {
+                CloseDoor();
+            }
         }
     }
 
