@@ -1,37 +1,49 @@
 using StarterAssets;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionRay : MonoBehaviour
 {
-
     private StarterAssetsInputs assetsInputs;
+
+    [SerializeField] private Camera playerCamera;
 
     private void Start()
     {
         assetsInputs = GetComponent<StarterAssetsInputs>();
+       
     }
-    void Update()
+
+    private void Update()
     {
+        
+
         if (assetsInputs.action)
         {
             assetsInputs.action = false;
-            CastRay();
+            CastRayFromCamera();
 
         }
     }
-    private void CastRay()
+
+    private void CastRayFromCamera()
     {
        
-        Ray ray = new Ray(transform.position, transform.forward);
+        Vector3 cameraPosition = playerCamera.transform.position;
+        Vector3 cameraForward = playerCamera.transform.forward;
+
+       
         RaycastHit hit;
 
-    
-        if (Physics.Raycast(ray, out hit))
+        
+        if (Physics.Raycast(cameraPosition, cameraForward, out hit))
         {
+           
             Debug.Log("Trafiony obiekt: " + hit.collider.gameObject.name);
 
+          
         }
+
+      
+        Debug.DrawRay(cameraPosition, cameraForward * 100f, Color.red);
     }
 }
