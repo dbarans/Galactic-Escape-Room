@@ -2211,6 +2211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500689321394935814}
   - component: {fileID: 4930045529754965585}
+  - component: {fileID: 3046041389322761704}
   - component: {fileID: 5208085653780067649}
   - component: {fileID: 43525263795420541}
   - component: {fileID: 5532295827573470634}
@@ -2262,6 +2263,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3046041389322761704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331894102179907224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a7cabcdb32a5e468625e2091b9beb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &5208085653780067649
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2332,6 +2345,9 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  _speed: 0
+  _animationBlend: 0
+  _terminalVelocity: 53
   _mainCamera: {fileID: 8943273494721072951}
 --- !u!114 &5532295827573470634
 MonoBehaviour:
@@ -2366,6 +2382,7 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  action: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
