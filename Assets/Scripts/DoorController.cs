@@ -4,36 +4,12 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] private Animator doorAnimator;
-    private int playerCount = 0;
-
-    private void Start()
+    private Animator doorAnimator;
+    void Start()
     {
-        doorAnimator = transform.parent.GetComponent<Animator>();
-    }
+        doorAnimator = GetComponent<Animator>();
+        OpenDoor();
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerCount++;
-            if (playerCount == 1)
-            {
-                OpenDoor();
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerCount--;
-            if (playerCount == 0)
-            {
-                CloseDoor();
-            }
-        }
     }
 
     private void OpenDoor()
