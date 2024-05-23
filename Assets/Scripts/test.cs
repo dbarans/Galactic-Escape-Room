@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    [SerializeField] private DoorManager doorManager;
+    [SerializeField] private Button button1;
     void Start()
     {
-        doorManager.Action();
+        
     }
 }
