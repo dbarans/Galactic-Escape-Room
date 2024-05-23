@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorController : MonoBehaviour
+public class DoorAutoOpener : MonoBehaviour
 {
     [SerializeField] private Animator doorAnimator;
     private int playerCount = 0;
