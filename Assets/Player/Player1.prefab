@@ -1283,7 +1283,7 @@ Camera:
     y: 0
     width: 0.5
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.03
   far clip plane: 1000
   field of view: 90
   orthographic: 0
@@ -1843,6 +1843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4096596029860700769}
   - component: {fileID: 9121398933803258138}
+  - component: {fileID: 5569025168270758077}
   - component: {fileID: 3425489579905559397}
   - component: {fileID: 7751910878691306806}
   - component: {fileID: 1102640035282916938}
@@ -1894,6 +1895,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5569025168270758077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297885046175687418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a7cabcdb32a5e468625e2091b9beb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &3425489579905559397
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1964,6 +1977,9 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  _speed: 0
+  _animationBlend: 0
+  _terminalVelocity: 53
   _mainCamera: {fileID: 2930603192343499206}
 --- !u!114 &1102640035282916938
 MonoBehaviour:
@@ -1998,6 +2014,7 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  action: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
