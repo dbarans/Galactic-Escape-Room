@@ -10,8 +10,7 @@ public class PlayerScaler : MonoBehaviour, IActionable
     public int scale;
     private CharacterController characterController;
     private ThirdPersonController playerController;
-    private Animator animator;
-
+    private bool isScaledDown = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,8 +37,15 @@ public class PlayerScaler : MonoBehaviour, IActionable
             Debug.Log("Scaler Action Player Found");
             playerController = player.GetComponent<ThirdPersonController>();
             characterController = player.GetComponent<CharacterController>();
-            animator = player.GetComponent<Animator>();
-            ScaleDownPlayer();
+            if (isScaledDown)
+            {
+                ScaleUpPlayer();
+            }
+            else
+            {
+                ScaleDownPlayer();
+            }
+            
         } else
         {
             Debug.Log("Scaler Action Player Not Found");
@@ -53,13 +59,17 @@ public class PlayerScaler : MonoBehaviour, IActionable
         playerController.JumpHeight /= scale;
         playerController.MoveSpeed /= scale;
         playerController.SprintSpeed /= scale;
-        animator.SetFloat("MotionSpeed", 10);
-        animator.SetFloat("Speed", 10);
+        isScaledDown = true;
 
     }
     public void ScaleUpPlayer()
-    { 
-
+    {
+        player.transform.localScale *= scale;
+        characterController.stepOffset *= scale;
+        playerController.JumpHeight *= scale;
+        playerController.MoveSpeed *= scale;
+        playerController.SprintSpeed *= scale;
+        isScaledDown = false;
     }
 
 
