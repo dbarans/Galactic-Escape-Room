@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorManager : MonoBehaviour
+public class DoorManager : MonoBehaviour, IActionable
 {
     [SerializeField] private GameObject[] doorsToOpenOnStart;
     [SerializeField] private GameObject[] doorsToCloseOnAction;

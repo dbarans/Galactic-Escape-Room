@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 483376781924274852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3.78, z: 0}
+  m_LocalPosition: {x: -0, y: 3.59, z: 0}
   m_LocalScale: {x: 24.999994, y: 6.2499986, z: 6.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,8 +45,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0.22
-  m_Range: 0.32
+  m_Intensity: 0.18
+  m_Range: 0.09
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -224,8 +224,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2.879192, z: 2}
-  m_Center: {x: 0, y: 1.439596, z: 0}
+  m_Size: {x: 2, y: 4.84, z: 2}
+  m_Center: {x: 0, y: 2.7, z: 0}
 --- !u!114 &5523500714164036425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonLight: {fileID: 483376781924274852}
-  secondButton: {fileID: 0}
+  buttons: []
   doorManager: {fileID: 0}
   TurnOn: 0
