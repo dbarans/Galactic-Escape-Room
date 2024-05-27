@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
+
 
 public class PlayerScaler : MonoBehaviour, IActionable
 {
@@ -59,6 +61,7 @@ public class PlayerScaler : MonoBehaviour, IActionable
         playerController.JumpHeight /= scale;
         playerController.MoveSpeed /= scale;
         playerController.SprintSpeed /= scale;
+        playerController.Gravity /= (float)Math.Sqrt(scale);
         isScaledDown = true;
 
     }
@@ -69,6 +72,7 @@ public class PlayerScaler : MonoBehaviour, IActionable
         playerController.JumpHeight *= scale;
         playerController.MoveSpeed *= scale;
         playerController.SprintSpeed *= scale;
+        playerController.Gravity *= (float)Math.Sqrt(scale);
         isScaledDown = false;
     }
 
