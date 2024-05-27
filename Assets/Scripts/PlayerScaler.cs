@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerScaler : MonoBehaviour, IActionable
 {
-    [SerializeField] private GameObject player;
+    private GameObject player;
     public int scale;
     private CharacterController characterController;
     private ThirdPersonController playerController;
