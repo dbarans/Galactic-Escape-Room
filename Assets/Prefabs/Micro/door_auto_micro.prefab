@@ -501,7 +501,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5928555148354763923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6d28f5e0bcfee848ac1a7a47572fc36, type: 3}
+  m_Script: {fileID: 11500000, guid: 009898b9e4946cc46a0233c910b20c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 0}

@@ -13,6 +13,8 @@ public class PlayerScaler : MonoBehaviour, IActionable
     private CharacterController characterController;
     private ThirdPersonController playerController;
     private bool isScaledDown = false;
+    [SerializeField] private GameObject[] lights;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,10 +43,12 @@ public class PlayerScaler : MonoBehaviour, IActionable
             characterController = player.GetComponent<CharacterController>();
             if (isScaledDown)
             {
+                StartFlashLightCoroutine();
                 ScaleUpPlayer();
             }
             else
             {
+                StartFlashLightCoroutine();
                 ScaleDownPlayer();
             }
             
@@ -75,7 +79,22 @@ public class PlayerScaler : MonoBehaviour, IActionable
         playerController.Gravity *= (float)Math.Sqrt(scale);
         isScaledDown = false;
     }
-
+    IEnumerator FlashLight(GameObject light)
+    {
+        Light lightComponent = light.GetComponent<Light>();
+        lightComponent.intensity *= 1000;
+        yield return new WaitForSeconds(0.1f);
+        lightComponent.intensity /= 1000;
+         
+    }
+    private void StartFlashLightCoroutine()
+    {
+        foreach (GameObject light in lights)
+        {
+            StartCoroutine(FlashLight(light));       
+        }
+        
+    }
 
     
 }
