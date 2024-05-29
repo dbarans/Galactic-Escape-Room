@@ -5,7 +5,7 @@ using UnityEngine;
 public class Button : MonoBehaviour, IHittable
 {
     [SerializeField] private GameObject buttonLight;
-    [SerializeField] private Button[] buttons;
+    [SerializeField] private Button[] otherButtons;
     [SerializeField] private MonoBehaviour actionScript;
     private IActionable actionableComponent;
     public bool TurnOn;
@@ -30,7 +30,7 @@ public class Button : MonoBehaviour, IHittable
         ChangeColor(Color.green);
         TurnOn = true;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         ChangeColor(Color.red);
         TurnOn = false;
@@ -38,13 +38,16 @@ public class Button : MonoBehaviour, IHittable
 
     public void OnHit()
     {
-        StartCoroutine(ButtonClick());
-        CheckAllButtons(); 
+        if (!TurnOn)
+        {
+            StartCoroutine(ButtonClick());
+            CheckAllButtons();
+        }   
     }
 
     private void CheckAllButtons()
     {
-        foreach (Button button in buttons)
+        foreach (Button button in otherButtons)
         {
             if (!button.TurnOn)
             {

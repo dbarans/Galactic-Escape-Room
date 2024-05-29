@@ -36,6 +36,7 @@ public class PlayerScaler : MonoBehaviour, IActionable
 
     public void Action()
     {
+        StartFlashLightCoroutine();
         if (player != null) 
         {
             Debug.Log("Scaler Action Player Found");
@@ -43,12 +44,10 @@ public class PlayerScaler : MonoBehaviour, IActionable
             characterController = player.GetComponent<CharacterController>();
             if (isScaledDown)
             {
-                StartFlashLightCoroutine();
                 ScaleUpPlayer();
             }
             else
             {
-                StartFlashLightCoroutine();
                 ScaleDownPlayer();
             }
             
@@ -71,6 +70,7 @@ public class PlayerScaler : MonoBehaviour, IActionable
     }
     public void ScaleUpPlayer()
     {
+        characterController.Move(new Vector3(0, 1, 0));
         player.transform.localScale *= scale;
         characterController.stepOffset *= scale;
         playerController.JumpHeight *= scale;
