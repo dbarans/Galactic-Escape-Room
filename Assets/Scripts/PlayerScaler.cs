@@ -65,6 +65,8 @@ public class PlayerScaler : MonoBehaviour, IActionable
         playerController.MoveSpeed /= scale;
         playerController.SprintSpeed /= scale;
         playerController.Gravity /= (float)Math.Sqrt(scale);
+        playerController.GroundedRadius /= scale;
+        playerController.GroundedOffset /= 10*scale;
         isScaledDown = true;
 
     }
@@ -77,14 +79,16 @@ public class PlayerScaler : MonoBehaviour, IActionable
         playerController.MoveSpeed *= scale;
         playerController.SprintSpeed *= scale;
         playerController.Gravity *= (float)Math.Sqrt(scale);
+        playerController.GroundedRadius *= scale;
+        playerController.GroundedOffset *= 10*scale;
         isScaledDown = false;
     }
     IEnumerator FlashLight(GameObject light)
     {
         Light lightComponent = light.GetComponent<Light>();
-        lightComponent.intensity *= 1000;
+        lightComponent.intensity *= 50;
         yield return new WaitForSeconds(0.1f);
-        lightComponent.intensity /= 1000;
+        lightComponent.intensity /= 50;
          
     }
     private void StartFlashLightCoroutine()
