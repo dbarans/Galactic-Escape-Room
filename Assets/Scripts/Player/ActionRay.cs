@@ -6,6 +6,7 @@ public class ActionRay : MonoBehaviour
     private StarterAssetsInputs assetsInputs;
 
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private float rayDistance = 1.5f;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class ActionRay : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(cameraPosition, cameraForward, out hit))
+        if (Physics.Raycast(cameraPosition, cameraForward, out hit, rayDistance))
         {
             TriggerAction(hit.collider.gameObject);
             Debug.Log("Trafiony obiekt: " + hit.collider.gameObject.name);
@@ -60,6 +61,6 @@ public class ActionRay : MonoBehaviour
         Vector3 cameraPosition = playerCamera.transform.position;
         Vector3 cameraForward = playerCamera.transform.forward;
 
-        Debug.DrawRay(cameraPosition, cameraForward * 100, Color.red);
+        Debug.DrawRay(cameraPosition, cameraForward * rayDistance, Color.red);
     }
 }

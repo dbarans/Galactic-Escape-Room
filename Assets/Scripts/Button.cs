@@ -5,18 +5,23 @@ using UnityEngine;
 public class Button : MonoBehaviour, IHittable
 {
     [SerializeField] private GameObject buttonLight;
-    [SerializeField] private Button secondButton;
-    [SerializeField] private DoorManager doorManager;
+    [SerializeField] private Button[] otherButtons;
+    [SerializeField] private MonoBehaviour actionScript;
+    private IActionable actionableComponent;
     public bool TurnOn;
+    private Light buttonLightComponent;
 
 
     private void Start()
     {
         TurnOn = false;
+        buttonLightComponent = buttonLight.GetComponent<Light>();
+        actionableComponent = actionScript as IActionable;
     }
+
     private void ChangeColor(Color color)
     {
-        Light buttonLightComponent = buttonLight.GetComponent<Light>();
+        
         buttonLightComponent.color = color;
     }
    
@@ -25,18 +30,33 @@ public class Button : MonoBehaviour, IHittable
         ChangeColor(Color.green);
         TurnOn = true;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         ChangeColor(Color.red);
         TurnOn = false;
     }
+
     public void OnHit()
     {
-        StartCoroutine(ButtonClick());
-        if (TurnOn && secondButton.TurnOn)
+        if (!TurnOn)
         {
-            doorManager.Action();
+            StartCoroutine(ButtonClick());
+            CheckAllButtons();
+        }   
+    }
+
+    private void CheckAllButtons()
+    {
+        foreach (Button button in otherButtons)
+        {
+            if (!button.TurnOn)
+            {
+                return;
+            }
         }
+
+        actionableComponent?.Action();
+        
     }
 
 }
