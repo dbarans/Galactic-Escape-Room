@@ -98,7 +98,9 @@ namespace StarterAssets
 		}
 		private void BackToMenu()
 		{
-			SceneManager.LoadScene("Level_0");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Level_0");
 		}
 	}
 	
