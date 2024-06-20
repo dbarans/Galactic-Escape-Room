@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 #endif
 
 namespace StarterAssets
@@ -50,7 +51,11 @@ namespace StarterAssets
 		{
 			ActionInput(value.isPressed);
 		}
-
+		public void OnBackToMenu(InputValue value)
+		{
+			Debug.Log("back  to menu");
+			BackToMenu();
+		}
 
 #endif
 
@@ -90,6 +95,10 @@ namespace StarterAssets
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+		}
+		private void BackToMenu()
+		{
+			SceneManager.LoadScene("Level_0");
 		}
 	}
 	

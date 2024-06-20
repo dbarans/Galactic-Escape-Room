@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "BackToMenu",
+                    "type": "Button",
+                    "id": "c3cf45e4-8feb-429a-ac51-9fe31d5514f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Look",
                     "type": "Value",
                     "id": "2690c379-f54d-45be-a724-414123833eb4",
@@ -249,27 +258,10 @@
                     "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Menu",
-            "id": "3aecbc62-be1e-4e1f-8a3c-c1b46e2a6e92",
-            "actions": [
-                {
-                    "name": "BackToMenu",
-                    "type": "Button",
-                    "id": "7d9108c9-ebfe-4d1e-826b-8cc940103ed8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "7d7df975-a189-4c7b-8f32-9d382d2157af",
+                    "id": "c7252a80-59ea-4835-b9fd-5c5c29472c8d",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
@@ -280,7 +272,7 @@
                 },
                 {
                     "name": "",
-                    "id": "ad977def-246c-4083-b1d5-79620ed88020",
+                    "id": "099799cf-f43d-4076-9783-5bf898dcb186",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
@@ -290,6 +282,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Menu",
+            "id": "3aecbc62-be1e-4e1f-8a3c-c1b46e2a6e92",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
