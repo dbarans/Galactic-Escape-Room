@@ -40,6 +40,7 @@ public class Button : MonoBehaviour, IHittable
     {
         if (!TurnOn)
         {
+            PlaySound();
             StartCoroutine(ButtonClick());
             CheckAllButtons();
         }   
@@ -57,6 +58,11 @@ public class Button : MonoBehaviour, IHittable
 
         actionableComponent?.Action();
         
+    }
+
+    private void PlaySound()
+    {
+        GetComponent<AudioSource>().Play();
     }
 
 }
